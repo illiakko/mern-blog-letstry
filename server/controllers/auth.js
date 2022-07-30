@@ -21,6 +21,14 @@ export const register = async (req, res) => {
             password: hash,
         })
 
+        const token = jwt.sign(
+            {
+                id: newUser._id,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '30d' }
+        )
+
         await newUser.save()
 
         res.json({
@@ -73,9 +81,13 @@ export const getMe = async (req, res) => {
             res.json({ message: 'Такого юзера не существует.' })
         }
 
-        const token = jwt.sign({
-            id: user._id,
-        }, process.env.JWT_SECRET, { expiresIn: '30d' })
+        const token = jwt.sign(
+            {
+                id: user._id,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '30d' }
+        )
 
         res.json({
             token,

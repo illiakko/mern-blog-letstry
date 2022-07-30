@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
 
 export function Navbar(props) {
-    const isAuth = false
+    const isAuth = true
 
     const activeStyles = {
         color: 'white'
@@ -21,7 +21,6 @@ export function Navbar(props) {
                         <li>
                             <NavLink
                                 to={'/'}
-                                href="/"
                                 className='text-xs text-gray-400 hover:text-white'
                                 style={({ isActive }) => isActive ? activeStyles : undefined}
                             >
@@ -31,7 +30,6 @@ export function Navbar(props) {
                         <li>
                             <NavLink
                                 to={'/posts'}
-                                href="/"
                                 className='text-xs text-gray-400 hover:text-white'
                                 style={({ isActive }) => isActive ? activeStyles : undefined}
                             >
@@ -41,7 +39,6 @@ export function Navbar(props) {
                         <li>
                             <NavLink
                                 to={'/new'}
-                                href="/"
                                 className='text-xs text-gray-400 hover:text-white'
                                 style={({ isActive }) => isActive ? activeStyles : undefined}
                             >
